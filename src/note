@@ -1,56 +1,59 @@
---------------Hibernate²éÑ¯·½Ê½----------------
+--------------HibernateæŸ¥è¯¢æ–¹å¼----------------
 
- 1.¶ÔÏóµ¼º½²éÑ¯
-   1)¸ù¾Ýid²éÑ¯Ä³¸ö¿Í»§£¬ÔÙ¸ù¾ÝÕâ¸ö¿Í»§²éÑ¯ÆäËùÓÐÁªÏµÈË
+ 1.å¯¹è±¡å¯¼èˆªæŸ¥è¯¢
+   1)æ ¹æ®idæŸ¥è¯¢æŸä¸ªå®¢æˆ·ï¼Œå†æ ¹æ®è¿™ä¸ªå®¢æˆ·æŸ¥è¯¢å…¶æ‰€æœ‰è”ç³»äºº
  
  
- 2.OID²éÑ¯
-   1)¸ù¾Ýid²éÑ¯Ä³Ò»Ìõ¼ÇÂ¼£¬·µ»Ø¶ÔÏó¡£
+ 2.OIDæŸ¥è¯¢
+   1)æ ¹æ®idæŸ¥è¯¢æŸä¸€æ¡è®°å½•ï¼Œè¿”å›žå¯¹è±¡ã€‚
  
  
- 3.HQL²éÑ¯ 
-   1)´´½¨Query¶ÔÏó£¬ Ð´hqlÓï¾ä
-   2)µ÷ÓÃQuery¶ÔÏóÀïÃæµÄ·½·¨µÃµ½½á¹û
+ 3.HQLæŸ¥è¯¢ 
+   1)åˆ›å»ºQueryå¯¹è±¡ï¼Œ å†™hqlè¯­å¥
+   2)è°ƒç”¨Queryå¯¹è±¡é‡Œé¢çš„æ–¹æ³•å¾—åˆ°ç»“æžœ
    
    
- hqlÓësqlÇø±ð£ºsql²Ù×÷µÄÊÇ±í×Ö¶Î
-             hql²Ù×÷µÄÊÇÊµÌåÀàºÍÊôÐÔ
+ hqlä¸ŽsqlåŒºåˆ«ï¼šsqlæ“ä½œçš„æ˜¯è¡¨å­—æ®µ
+             hqlæ“ä½œçš„æ˜¯å®žä½“ç±»å’Œå±žæ€§
      
-    HQL³£ÓÃÓï¾ä:
-              ²éÑ¯ËùÓÐ: from ÊµÌåÀàÃû³Æ 
+    HQLå¸¸ç”¨è¯­å¥:
+              æŸ¥è¯¢æ‰€æœ‰: from å®žä½“ç±»åç§° 
      
      
-   --²éÑ¯ËùÓÐ
-     |-- ²éÑ¯ËùÓÐ¿Í»§
+   --æŸ¥è¯¢æ‰€æœ‰
+     |-- æŸ¥è¯¢æ‰€æœ‰å®¢æˆ·
       
       
-   --Ìõ¼þ²éÑ¯
-     |--hqlÌõ¼þ²éÑ¯Óï¾äÐ´·¨
-        from ÊµÌåÀàÃû³Æ where ÊµÌåÀàÊôÐÔÃû³Æ=£¿ and ÊµÌåÀàÊôÐÔÃû³Æ=£¿
-        from ÊµÌåÀàÃû³Æ where ÊµÌåÀàÊôÐÔÃû³Æ like £¿
+   --æ¡ä»¶æŸ¥è¯¢
+     |--hqlæ¡ä»¶æŸ¥è¯¢è¯­å¥å†™æ³•
+        from å®žä½“ç±»åç§° where å®žä½“ç±»å±žæ€§åç§°=ï¼Ÿ and å®žä½“ç±»å±žæ€§åç§°=ï¼Ÿ
+        from å®žä½“ç±»åç§° where å®žä½“ç±»å±žæ€§åç§° like ï¼Ÿ
         
       
       
          
-   --ÅÅÐò²éÑ¯
+   --æŽ’åºæŸ¥è¯¢
    
    
-   --·ÖÒ³²éÑ¯
+   --åˆ†é¡µæŸ¥è¯¢
    
    
-   --Í¶Ó°²éÑ¯
+   --æŠ•å½±æŸ¥è¯¢
    
    
-   --¾ÛºÏº¯ÊýÊ¹ÓÃ
+   --èšåˆå‡½æ•°ä½¿ç”¨
    
      
      
               
  
  
- 4.QBC²éÑ¯
-   1)Criteria¶ÔÏó
+ 4.QBCæŸ¥è¯¢
+   1)Criteriaå¯¹è±¡
  
  
- 5.±¾µØSql²éÑ¯
-   1)SQlQuery¶ÔÏó£¬Ê¹ÓÃÆÕÍ¨SQL²éÑ¯
+ 5.æœ¬åœ°SqlæŸ¥è¯¢
+   1)SQlQueryå¯¹è±¡ï¼Œä½¿ç”¨æ™®é€šSQLæŸ¥è¯¢
+   
+   
+   æµ‹è¯•:è¿™å¥è¯å®žåœ¨GitHubä¸Šå†™çš„ï¼Œæµ‹è¯•èƒ½ä¸èƒ½ä¸‹è½½åˆ°æœ¬åœ°......
