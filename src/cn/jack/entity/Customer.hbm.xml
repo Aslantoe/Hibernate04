@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-5-18 15:24:14 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="cn.jack.entity.Customer" table="CUSTOMER">
+        <id name="cid" type="java.lang.Integer">
+            <column name="CID" />
+            <generator class="native" />
+        </id>
+        <property name="custName" type="java.lang.String">
+            <column name="CUSTNAME" />
+        </property>
+        <property name="custLevel" type="java.lang.String">
+            <column name="CUSTLEVEL" />
+        </property>
+        <property name="custSource" type="java.lang.String">
+            <column name="CUSTSOURCE" />
+        </property>
+        <property name="custPhone" type="java.lang.String">
+            <column name="CUSTPHONE" />
+        </property>
+        <property name="custMibile" type="java.lang.String">
+            <column name="CUSTMIBILE" />
+        </property>
+        <!-- 表示所有联系人
+             key属性:
+                          一对多建表，有外键
+             hibernate机制，双向维护外键,在一和多方面都配置外键   
+             inverse:false  不放弃外键
+                     true   放弃外键           
+         -->
+        <set name="setLinkMan" cascade="save-update,delete" table="LINKMAN" inverse="true" lazy="true">
+            <key>
+                <column name="clid" />
+            </key>
+            <one-to-many class="cn.jack.entity.LinkMan" />
+        </set>
+    </class>
+</hibernate-mapping>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
