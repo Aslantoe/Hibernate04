@@ -16,13 +16,11 @@
  hql与sql区别：sql操作的是表字段
              hql操作的是实体类和属性
      
-    HQL常用语句:
-              查询所有: from 实体类名称 
-     
      
    --查询所有
      |-- 查询所有客户
-      
+                  查询所有: from 实体类名称 
+ 
       
    --条件查询
      |--hql条件查询语句写法
@@ -30,30 +28,145 @@
         from 实体类名称 where 实体类属性名称 like ？
         
       
-      
-         
+       
    --排序查询
+     |--from 实体类名称 order by 实体类属性 asc/desc
    
-   
+     
    --分页查询
-   
+     |-- hibernate中的query对象封装了两个方法实现分页操作
    
    --投影查询
-   
+     |--查询的不是所有的字段值，而是部分字段的值。 
+      
+     |--投影查询的hql语句
+        select 实体类属性名称1,实体类属性名称1 from 实体类名称
+        
    
    --聚合函数使用
+     |--常用的聚集函数
+        count,sum,avg,max,min
+     
+          聚合函数语句写法
+        |--查询表记录数
+           select count(*) from 实体类名称   
+        
    
      
-     
-              
- 
- 
- 4.QBC查询
-   1)Criteria对象
- 
+    
+ 4.QBC查询(Criteria对象)
+    |--创建Criteria对象
+    |--调用方法
+  
+    
  
  5.本地Sql查询
-   1)SQlQuery对象，使用普通SQL查询
+    |--SQlQuery对象，使用普通SQL查询
+ 
+ 
+ 6.离线查询
+    |--应用场景
+      1)servlet调用service,service 调用dao
+      2)在dao里面对数据库进行crud操作
+      3)在dao里面使用Hibernate框架，使用Hibernate框架的时候,调用session里面的方法实现功能。
+   
+   
+ 7.多表查询
+     |--内连接
+
+         /*SELECT * FROM customer c, linkman l WHERE c.CID = l.clid*/
+
+         SELECT * FROM customer c INNER JOIN linkman l ON c.CID = l.clid
+     
+     |--左外连接
+        
+         SELECT * FROM customer AS c LEFT OUTER JOIN linkman AS l ON c.CID = l.clid
+     
+        
+     |--右外链接
+        SELECT * FROM customer AS c RIGHT OUTER JOIN linkman AS l ON c.CID = l.clid
+   
+--------------HQL实现多表查询----------------
+
+  Hql多表查询
+    1)内连接
+       from Customer c inner join c.setLinkMan
+       
+       
+    2)左外连接
+       SELECT * FROM customer AS c RIGHT OUTER JOIN c.setLinkMan
+       
+    
+    3)右外链接
+    
+    4)迫切内连接
+            与内连接区别:
+               内连接返回数组
+               迫切内连接返回对象      
+                
+     from Customer c inner join fetch c.setLinkMan      
+    
+      
+    5)迫切左外连接
+         SELECT * FROM customer AS c RIGHT OUTER JOIN fetch c.setLinkMan
+   
+ 
+ -----------------Hibernate 检索策略------------------------
+ 
+ 1.立即查询:根据id查询，调用get方法，一调用get方法们马上发送语句查询数据库。
+ 
+    
+   
+   
+ 2.延迟查询:load方法，调用load方法不会马上发送语句查询数据，只有得到对象里面的值的时候才会发送语句查询数据库。
+    
+    |--类级别延迟，
+    
+    |--关联级别延迟(查询客户,再得到其中的联系人)
+              查询所有联系人的过程延迟
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
    
    
    测试:这句话实在GitHub上写的，测试能不能下载到本地......
