@@ -28,9 +28,10 @@
                           一对多建表，有外键
              hibernate机制，双向维护外键,在一和多方面都配置外键   
              inverse:false  不放弃外键
-                     true   放弃外键           
+                     true   放弃外键  
+             batch-size:值越大,效率越高                 
          -->
-        <set name="setLinkMan" cascade="save-update,delete" table="LINKMAN" inverse="true" lazy="true">
+        <set name="setLinkMan" batch-size="10" cascade="save-update,delete" table="LINKMAN" inverse="true" fetch="select" lazy="true">
             <key>
                 <column name="clid" />
             </key>

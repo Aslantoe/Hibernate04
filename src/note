@@ -108,27 +108,55 @@
     
       
     5)迫切左外连接
-         SELECT * FROM customer AS c RIGHT OUTER JOIN fetch c.setLinkMan
+         SELECT * FROM customer AS c LEFT OUTER JOIN fetch c.setLinkMan
    
  
  -----------------Hibernate 检索策略------------------------
  
  1.立即查询:根据id查询，调用get方法，一调用get方法们马上发送语句查询数据库。
  
-    
-   
+
    
  2.延迟查询:load方法，调用load方法不会马上发送语句查询数据，只有得到对象里面的值的时候才会发送语句查询数据库。
     
     |--类级别延迟，
-    
+       cn.jack.hibernatetest.HibernateDemo.testJiansuo();
+       
     |--关联级别延迟(查询客户,再得到其中的联系人)
               查询所有联系人的过程延迟
+       
+关联级别延迟 自定义操作:
+  1.在映射文件中进行配置实现
+    |--根据客得到所有联系人，在客户映射文件中配置
+    
+    |--在set标签上使用属性
+       |--fetch:select
+       |--lazy
+          |--true 延迟
+          |--false 不延迟
+          |--extra 极其延迟   
+          
+-------------------批量抓取-------------------
+   场景:查询所有客户，返回list集合，遍历list集合，得到每个客户，得到每个客户的所有联系人。 
    
+   //查询所有客户
+		    Criteria cri =  session.createCriteria(Customer.class);
+		    List<Customer> list =  cri.list();
+		    
+		    //得到每个客户里面所有的联系人
+		    for (Customer customer : list) {
+				System.out.println(customer.toString());
+				
+			    Set<LinkMan> linkMans = customer.getSetLinkMan();
+			
+			    for (LinkMan linkMan : linkMans) {
+					System.out.println(linkMan.toString());
+				}
+		    }
    
+   上面的代码发送多条sql语句，效率低
    
-   
-   
+   优化：在客户映射文件中 set标签 batch-size 
    
    
    

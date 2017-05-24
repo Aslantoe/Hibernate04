@@ -27,9 +27,10 @@ public class HibernateTables {
 			session = HibernateUtils.getSessionObject();
 			tx = session.beginTransaction();
 			
-
+            //普通左外连接
 			Query query1 = session.createQuery("from Customer c left outer join c.setLinkMan");
 			
+			//迫切左外连接
 			Query query2 = session.createQuery("from Customer c left outer join fetch c.setLinkMan");
 			
 			List list2 = query2.list();
